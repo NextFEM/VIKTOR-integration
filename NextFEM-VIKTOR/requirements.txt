@@ -1,0 +1,3 @@
+viktor==14.16.2
+requests
+nextfempy>=0.1.2
