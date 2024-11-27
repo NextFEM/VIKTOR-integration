@@ -1,3 +1,4 @@
+![logo](./imgs/viktor_nextfem.png)
 # NextFEM-VIKTOR integration
 
 ## Prerequisites
@@ -16,11 +17,19 @@
 4. start the app with the command
 `viktor-cli clean-start`
 
+![cli](./imgs/vkt_shell1.png)
+
 5. log-in into cloud.viktor.ai and open your Development workspace, or click in the link provided in the shell log. You'll get a blank workspace, hence click Create and then assign a name to the new app.
+
+![create](./imgs/vkt_create.png)
 
 6. when you're done, click on Open
 
+![open](./imgs/vkt_open.png)
+
 7. Now set up your local worker. A worker is able to connect your local copy of NextFEM Designer to VIKTOR cloud. From site cloud.viktor.ai, select Integrations, and Add integration. Select Generic worker, set scope as Specific and give it a name. The guided procedure let you download the worker installer and assign to you a key that must be used during installation on your machine.
+
+![wrk](./imgs/vkt_worker.png)
 
 8. We're almost ready! Set your worker configuration in config.yaml like this, by changing [yourPath] to the current location of app.py. In addition, set a scratch folder folder for the worker (e.g. create a folder named NextFEM_models in drive C:).
 ```
@@ -40,7 +49,12 @@ maxParallelProcesses: 1
 
 The sample code provided is aimed to share easily models and results. One the app is running and the worker is connected, press Reload model and wait for execution. Then, click on the three dots in the upper-right corner of the viewport and select Center camera.
 
+![r0](./imgs/viktor_centerCamera.png)
+
 What happens when the button Reload model is pressed? The local worker executes the code in get-model.py. Your local copy of NextFEM Designer receives instructions and collects the model, running the analyses for the specified load cases. Finally, model and results are sent to VIKTOR; viewport and results table are populated.
+
+![r1](./imgs/viktor_res1.png)
+![r2](./imgs/viktor_res2.png)
 
 The power of VIKTOR approach is allowing models and data to be shared and visualized with ease. With a bunch of Python lines, you can:
 - run Finite Element analysis for free in VIKTOR platform
