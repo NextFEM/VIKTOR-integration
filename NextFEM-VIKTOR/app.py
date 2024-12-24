@@ -141,3 +141,15 @@ class Controller(ViktorController):
                         data.append([rr['ID'], lc['LCname'], dt['time'], rr['x'], rr['y'], rr['z'], rr['rx'], rr['ry'], rr['rz']])
 
         return vkt.TableResult(data,column_headers=["Node", "LC", "time", "RX", "RY", "RZ", "RrX", "RrY", "RrZ"])
+    
+    @vkt.TableView("Section properties")
+    def sects_view(self, params, **kwargs):
+        data=[]
+        if 'model' in vkt.Storage().list(scope='entity'):
+            nfmodel=""
+            file = vkt.Storage().get('model', scope='entity')
+            nfmodel=json.loads(file.getvalue())
+            for s in nfmodel['sects']:
+                data.append([s['ID'], s['name'], s['Area'], s['Jxc'], s['Jyc'], s['Jxyc'], s['xc'], s['yc']])
+
+        return vkt.TableResult(data,column_headers=["ID", "Name", "Area", "Jx", "Jy", "Jxy", "Center X", "CenterY"])
