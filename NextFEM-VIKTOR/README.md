@@ -31,19 +31,21 @@
 
 ![wrk](./imgs/vkt_worker.png)
 
-8. We're almost ready! Set your worker configuration in config.yaml like this, by changing [yourPath] to the current location of app.py. In addition, set a scratch folder folder for the worker (e.g. create a folder named NextFEM_models in drive C:).
+8. We're almost ready! Set your worker configuration in config.yaml like this, by changing [username] with your username. In addition, set a scratch folder folder for the worker (e.g. create a folder named NextFEM_models in drive C:).
 ```
 # CONFIGURATION FILE FOR VIKTOR WORKER TO RUN GENERIC EXECUTABLE / SCRIPT
 #
-executables:
-get_model:
-path: 'C:\[yourPath]\venv\Scripts\python.exe'
-arguments:
-- 'get-model.py'
-workingDirectoryPath: 'C:\NextFEM_models'
+executables: 
+  get_model: 
+    path: 'C:\Users\[username]\AppData\Local\Programs\Python\Python313\python.exe'
+    arguments:
+      - 'get-model.py'
+    workingDirectoryPath: 'C:\NextFEM_models' 
 maxParallelProcesses: 1
 ```
 9. Finally, start the worker. We're almost ready! Remember also to start NextFEM Designer and the plugin REST API server.
+
+![apinf](./imgs/NFdes_APIserv.png)
 
 ## Usage
 
@@ -51,7 +53,12 @@ The sample code provided is aimed to share easily models and results. One the ap
 
 ![r0](./imgs/viktor_centerCamera.png)
 
-What happens when the button Reload model is pressed? The local worker executes the code in get-model.py. Your local copy of NextFEM Designer receives instructions and collects the model, running the analyses for the specified load cases. Finally, model and results are sent to VIKTOR; viewport and results table are populated.
+What happens when the button Reload model is pressed? The local worker executes the code in get-model.py. Your local copy of NextFEM Designer receives instructions and collects the model, running the analyses for the specified load cases. 
+Here's what you can see in your machine: the command prompt in which the app runs, the worker and NextFEM Designer with the computed model.
+
+![local](./imgs/local_setup.png)
+
+Finally, model and results are sent to VIKTOR; viewport and results table are populated.
 
 ![r1](./imgs/viktor_res1.png)
 ![r2](./imgs/viktor_res2.png)
