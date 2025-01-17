@@ -9,6 +9,7 @@ from viktor.views import GeometryView, GeometryResult
 from viktor.external.generic import GenericAnalysis
 from viktor.core import File
 from pathlib import Path
+import axes
 
 class Parametrization(ViktorParametrization):
     text1 = Text("## NextFEM model \n"
@@ -152,4 +153,4 @@ class Controller(ViktorController):
             for s in nfmodel['sects']:
                 data.append([s['ID'], s['name'], s['Area'], s['Jxc'], s['Jyc'], s['Jxyc'], s['xc'], s['yc']])
 
-        return vkt.TableResult(data,column_headers=["ID", "Name", "Area", "Jx", "Jy", "Jxy", "Center X", "CenterY"])
+        return vkt.TableResult(data,column_headers=["ID", "Name", "Area", "Jx", "Jy", "Jxy", "Offset X", "Offset Y"])

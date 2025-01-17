@@ -13,7 +13,7 @@ try:
     # material and section
     mat=nf.addMatFromLib("C25/30"); print("Mat="+str(mat))
     cSect=nf.addCircSection(0.2)
-    bSect=nf.addRectSection(0.2,0.2)
+    bSect=nf.addRectSection(0.2,0.3)
     # nodes
     n1=nf.addNode(0,0,0); n2=nf.addNode(0,0,3)
     n3=nf.addNode(3,0,0); n4=nf.addNode(3,0,3)
